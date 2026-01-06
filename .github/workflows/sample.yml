@@ -12,5 +12,9 @@ jobs:
           echo "An issue was created: $ISSUE_TITLE"
         env:
           ISSUE_TITLE: ${{ github.event.issue.title }}
-          SOME_SECRET: ${{ secrets.SOME_SECRET }}
+      - run: |
+          # Push the issue to our internal issue tracker
+          curl https://trello.com
+        env:
+          TRELLO_KEY: ${{ secrets.TRELLO_KEY }}
 
