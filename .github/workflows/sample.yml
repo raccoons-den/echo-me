@@ -1,0 +1,15 @@
+name: Sample workflow
+
+on:
+  issues: 
+    types: [opened]
+
+jobs:
+  do-work:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "An issue was created: ${{ github.event.issue.title }}"
+        env:
+          SOME_SECRET: ${{ secrets.SOME_SECRET }}
+
