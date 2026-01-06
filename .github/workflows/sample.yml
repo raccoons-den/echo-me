@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "An issue was created: ${{ github.event.issue.title }}"
+          echo "An issue was created: $ISSUE_TITLE"
         env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
 
