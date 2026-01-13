@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "An issue was created: $ISSUE_TITLE"
+          echo "An issue was created: $ISSUE_BODY"
         env:
-          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
       - run: |
           # Push the issue to our internal issue tracker
-          curl https://trello.com
+          curl https://trello.com >/dev/null
         env:
           TRELLO_KEY: ${{ secrets.TRELLO_KEY }}
 
